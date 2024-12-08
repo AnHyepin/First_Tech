@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.demo.dao.sangin.IApplicationDao;
 import com.example.demo.dto.ApplicationDto;
 import com.example.demo.dto.CompanyDto;
 import com.example.demo.dto.UserToApplicationBookmarkDto;
@@ -39,8 +38,6 @@ public class SanginController {
 	BookmarkedApplicationService bookmarkedApplicationService;
 	@Autowired
 	CompanyApplicationManagementService companyApplicationService;
-	@Autowired
-	IApplicationDao dao;
 
 	// 메인은 상인 템플릿의 sum으로 갑니다
 	@RequestMapping("/")
@@ -49,10 +46,17 @@ public class SanginController {
 	}
 
 	@RequestMapping("/test")
-	String test(@RequestParam("resumeNum") int resumeNum) {
-		
-		dao.insertApplicationUser001(resumeNum);
-		return "redirect:/";
+	String test(Model model) {
+		System.out.println("공고 페이지로 들어갑니다~~");
+		// 전체 공고랑 북마크 된 공고
+		List<ApplicationDto> applicationList = applicationService.getApplicationList("user001");
+		// 기업 북마크
+		List<String> companyList = applicationService.getBookmarkedCompany("user001");
+		System.out.println("공고 페이지 전체 리스트 = " + applicationList);
+		model.addAttribute("applicationList", applicationList);
+		model.addAttribute("companyList", companyList);
+
+		return "sangin/test";
 	}
 
 	// 공고 리스트 페이지
@@ -189,7 +193,7 @@ public class SanginController {
 		}
 		dto.setFileName(fileName);// 파일 네임도 dto 에 넣어서 데이터 베이스로 보내기
 		int result = companyApplicationService.insertApplication(dto);
-		return "redirect:/hyepin/companyMain";
+		return "sangin/sum";
 	}
 
 	// 지역 체크 시 지역에 해당하는 공고 리스트 반환

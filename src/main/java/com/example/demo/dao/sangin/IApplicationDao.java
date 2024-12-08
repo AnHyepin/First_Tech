@@ -32,7 +32,5 @@ public interface IApplicationDao {
 	List<ApplicationDto> getApplicationByRoleId(@Param("userId") String userId,@Param("roleId") String roleId);
 
 	List<ApplicationDto> getApplicationByKeyword(@Param("userId") String userId, @Param("keyword") String keyword);
-	
-	int insertApplicationUser001(@Param("num") int num);
 
 }

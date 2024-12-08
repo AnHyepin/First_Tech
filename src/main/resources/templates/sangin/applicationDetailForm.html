@@ -55,9 +55,8 @@ nav {
 #nav1 {
 	display: flex;
 	justify-content: space-between;
-	flex-direction: column; margin : 0 auto;
-	width: 20%;
 	margin: 0 auto;
+	width: 20%;
 }
 
 #nav2 {
@@ -239,32 +238,7 @@ footer input[type="button"]:hover {
 					th:if="${jobApplication.isBookmarked != 1}">♡</button>
 				<div id="applicationName">[[${jobApplication.applicationName}]]</div>
 			</div>
-			<form id="resumeForm" action="/sangin/test" method="post">
-				<label for="resumeNum">이력서를 선택하세요:</label> <select name="resumeNum"
-					id="resumeNum">
-					<option value="1">프론트엔드 이력서 1</option>
-					<option value="2">백엔드 이력서 2</option>
-					<option value="3">데이터 분석가 이력서 3</option>
-					<option value="4">데이터 엔지니어 이력서 4</option>
-					<option value="5">AI 엔지니어 이력서 5</option>
-					<option value="6">풀스택 개발자 이력서 6</option>
-					<option value="7">프로덕트 매니저 이력서 7</option>
-					<option value="8">프론트엔드 이력서 8</option>
-					<option value="9">백엔드 이력서 9</option>
-					<option value="10">데이터 분석가 이력서 10</option>
-					<option value="11">AI 연구원 이력서 11</option>
-					<option value="12">데이터 사이언티스트 이력서 12</option>
-					<option value="13">프론트엔드 엔지니어 이력서 13</option>
-					<option value="14">풀스택 엔지니어 이력서 14</option>
-					<option value="15">프로덕트 디자이너 이력서 15</option>
-					<option value="16">백엔드 엔지니어 이력서 16</option>
-					<option value="17">프론트엔드 디자이너 이력서 17</option>
-					<option value="18">데브옵스 엔지니어 이력서 18</option>
-					<option value="19">소프트웨어 엔지니어 이력서 19</option>
-					<option value="20">UI/UX 디자이너 이력서 20</option>
-				</select> <input type="submit" value="입사지원"
-					style="border: 1px black solid; padding: 15px 20px; margin: 10px">
-			</form>
+			<button>입사지원</button>
 		</div>
 		<div id="nav2">
 			<!-- 첫 번째 열 -->
@@ -316,11 +290,12 @@ footer input[type="button"]:hover {
 			<h2>회사 사무실</h2>
 			<br>
 			<hr>
-			<br> <br> <img alt="1" src="/uploads/applicationImg1.png">
-			<img alt="2" src="/uploads/applicationImg2.png"> <img alt="3"
-				src="/uploads/applicationImg3.png"> <img alt="4"
-				src="/uploads/applicationImg6.png"> <img alt="5"
-				src="/uploads/applicationImg7.png">
+			<br> <br> 
+			<img alt="1" src="/uploads/applicationImg1.png">
+			<img alt="2" src="/uploads/applicationImg2.png">
+			<img alt="3" src="/uploads/applicationImg3.png">
+			<img alt="4" src="/uploads/applicationImg6.png">
+			<img alt="5" src="/uploads/applicationImg7.png">
 
 		</div>
 	</section>

@@ -261,64 +261,83 @@ footer {
 </head>
 
 <body>
-    <header>
-        <div id="logo">
-        <a href="/">
-        	First Tech
-        </a>
-        </div>
-        <div class="search">
-        <form action="/s/searchResult2" method="post" id="form">
-            <select id="searchSelect"  name="searchPart">
-              <option value="searchApplication">공고명</option>
-        		<option value="searchCompany">기업명</option>
-            </select>
-            <input type="text" name="mainSearchInput"  placeholder="텍스트를 입력하세요">
-            <th:block th:if="${session.user != null}">
-            <button id="searchBtn">검색</button>
-            </th:block>
-             <th:block th:if="${session.user == null}">
-            <button id="searchBtn" onclick="noSearch(event)">검색</button>
-            </th:block>
-         </form>
-        </div>
-        <div id="header-right">
-        	<th:block th:if="${session.user == null}">
-        	  	<span><a href="/hyepin/login">로그인</a></span>
-           		<span><a href="/hyepin/join">회원가입</a></span>
-            	<span><a href="/hyepin/companyMain">기업 홈</a></span>
-        	</th:block>
-        	<th:block th:if="${session.user != null}">
-        	  	<span><a href="/hyepin/goUserInformation">마이페이지</a></span>
-        	  	<span><a href="/hyepin/logout">로그아웃</a></span>
-        	</th:block>
-        </div>
-    </header>
-    <nav>
-        <div class="nav-left">
-        <th:block th:if="${session.user == null}">
-            <div onclick="noLogin()">채용공고</div>
-            <div onclick="noLogin()">기업정보</div>
-            <div onclick="noLogin()">지원현황</div>
-            <div onclick="noLogin()">이력서관리</div>
-            <div onclick="noLogin()">관심공고</div>
-            <div onclick="noLogin()">커뮤니티</div>
-        </th:block>
-       
-        <th:block th:if="${session.user != null}">
-            <div><a href="/sangin/applicationsForm">채용공고</a></div>
-            <div><a href="/c/companyInfo/1">기업정보</a></div>
-            <div><a href="/resume/resumeApplyList">지원현황</a></div>
-            <div><a href="/sangin/bookmarkedApplicationsForm">관심 공고</a></div>
-            <div><a href="/resume/MyResumeList">이력서관리</a></div>
-            <div><a href="/b/board/1">커뮤니티</a></div>
-        </th:block>
-        </div>
-        
-        <div class="nav-right">
-            <div>FAQ</div>
-        </div>
-    </nav>
+	<header>
+				<div id="logo">
+					<th:block th:if="${session.user != null}">
+					<a href="/"> First Tech </a>
+					</th:block>
+					<th:block th:if="${session.company != null}">
+					<a href="/hyepin/companyMain"> First Tech </a>
+					</th:block>
+					<th:block th:if="${session.user == null and session.company == null}">
+					<a href="/"> First Tech </a>
+					</th:block>
+					
+				</div>
+				<div class="search">
+					<form action="/s/searchResult2" method="post" id="form">
+						<select id="searchSelect" name="searchPart">
+							<option value="searchApplication">공고명</option>
+							<option value="searchCompany">기업명</option>
+						</select> <input type="text" name="mainSearchInput" placeholder="텍스트를 입력하세요">
+						
+							<button id="searchBtn">검색</button>
+						
+						<th:block th:if="${session.user == null and session.company == null}">
+							<button id="searchBtn" onclick="noSearch(event)">검색</button>
+						</th:block>
+					</form>
+				</div>
+				<div id="header-right">
+					<th:block th:if="${session.user == null and session.company == null}">
+						<span><a href="/hyepin/login">로그인</a></span>
+						<span><a href="/hyepin/join">회원가입</a></span>
+						<span><a href="/">홈으로</a></span>
+					</th:block>
+					<th:block th:if="${session.user != null}">
+						<span><a href="/hyepin/goUserInformation">마이페이지</a></span>
+						<span><a href="/hyepin/logout">로그아웃</a></span>
+					</th:block>
+					<th:block th:if="${session.company != null}">
+									<span><a href="">마이페이지</a></span>
+									<span><a href="/hyepin/logout">로그아웃</a></span>
+					</th:block>
+				</div>
+			</header>
+			<nav>
+				<div class="nav-left">
+					<th:block th:if="${session.user == null and session.company == null}">
+						<div onclick="noLogin()">채용공고</div>
+						<div onclick="noLogin()">기업정보</div>
+						<div onclick="noLogin()">기업공고관리</div>
+						<div onclick="noLogin()">지원자관리</div>
+						<div onclick="noLogin()">커뮤니티</div>
+					</th:block>
+
+					<!-- 유저 세션이 있을 때 -->
+					<th:block th:if="${session.user != null and session.company == null}">
+						<div><a href="/sangin/applicationsForm">채용공고</a></div>
+						<div><a href="/c/companyInfo/1">기업정보</a></div>
+						<div><a href="/resume/resumeApplyList">지원현황</a></div>
+						<div><a href="/sangin/bookmarkedApplicationsForm">관심 공고</a></div>
+						<div><a href="/resume/MyResumeList">이력서관리</a></div>
+						<div><a href="/b/board/1">커뮤니티</a></div>
+					</th:block>
+					
+					<!-- 기업 세션이 있을 때 -->
+					     <th:block th:if="${session.company != null and session.user == null}">
+					         <div><a href="/sangin/applicationsForm">채용공고</a></div>
+					         <div><a href="/c/companyInfo/1">기업정보</a></div>
+					         <div><a href="/sangin/companyApplicationManagementForm/1">기업공고관리</a></div>
+					         <div><a href="/hyepin/applicantManage/1/1">지원자관리</a></div>
+					         <div><a href="/b/board/1">커뮤니티</a></div>
+					     </th:block>
+				</div>
+	        
+	        <div class="nav-right">
+	            <div>FAQ</div>
+	        </div>
+	    </nav>
 
 	<section class="container">
 		<div class="company-info">

@@ -204,24 +204,7 @@ header div {
 							<a
 								th:href="@{/hyepin/applicantManage/{applicationNum}/1(applicationNum=${item.applicationNum})}">지원자관리</a>
 						</div>
-						
-						<div th:if="${item.roleId == '1'}">개발자</div>
-						<div th:if="${item.roleId == '2'}">기술지원</div>
-						<div th:if="${item.roleId == '3'}">데이터분석가</div>
-						<div th:if="${item.roleId == '4'}">데이터엔지니어</div>
-						<div th:if="${item.roleId == '5'}">백엔드/서버개발</div>
-						<div th:if="${item.roleId == '6'}">보안컨설팅</div>
-						<div th:if="${item.roleId == '7'}">앱개발</div>
-						<div th:if="${item.roleId == '8'}">웹개발</div>
-						<div th:if="${item.roleId == '9'}">웹마스터</div>
-						<div th:if="${item.roleId == '10'}">유지보수</div>
-						<div th:if="${item.roleId == '11'}">정보보안</div>
-						<div th:if="${item.roleId == '12'}">프론트엔드</div>
-						<div th:if="${item.roleId == '13'}">퍼블리셔</div>
-						<div th:if="${item.roleId == '14'}">BI엔지니어</div>
-						<div th:if="${item.roleId == '15'}">CISO</div>
-
-
+						<div th:text="${item.roleId}">roleId</div>
 						<div th:text="${item.deadlineDate}">deadlineDate</div>
 						<div th:text="${item.onBoard}">진행 중</div>
 					</div>
