@@ -155,7 +155,7 @@ body{
         border-radius: 5px;
         border: 1px solid #d9d9d9;
    }
-   #realBtn, #userPostalCodeCheck{
+   #realBtn, #userNicknameCheck, #userIdCheck, #userPostalCodeCheck{
         text-decoration: none;
         font-size: 18px;
         padding: 10px 20px;
@@ -164,7 +164,7 @@ body{
         border-radius: 5px;
         border: none;
     }
-    #realBtn:hover, #userPostalCodeCheck:hover{
+    #realBtn:hover, #userNicknameCheck:hover,  #userIdCheck:hover, #userPostalCodeCheck:hover{
         background-color: #0056b3;
     }
     #margin{
@@ -198,7 +198,7 @@ body{
                 <div>
                 <p>아이디</p>
                 <input type="text" name="userId" id="userId" >
-                <input type="button" id="realBtn" value="중복확인" onclick="idCheck()" id="userIdCheck">
+                <input type="button" value="중복확인" onclick="idCheck()" id="userIdCheck">
                 <br>
                 <span class="ajax" id="idAjax"></span>
                 </div>
@@ -206,7 +206,7 @@ body{
                 <div>
                 <p>닉네임</p>
                 <input type="text" name="userNickname" id="userNickname" maxlength="10">
-                <input type="button"  id="realBtn" value="중복확인" onclick="nicknameCheck()" id="userNicknameCheck">
+                <input type="button" value="중복확인" onclick="nicknameCheck()" id="userNicknameCheck">
                 <br>
                 <span class="ajax" id="nicknameAjax"></span>
                 </div>

@@ -151,7 +151,7 @@
         border-radius: 5px;
         border: 1px solid #d9d9d9;
    }
-   #realBtn, #userPostalCodeCheck{
+   #realBtn, #userNicknameCheck, #userPostalCodeCheck{
         text-decoration: none;
         font-size: 18px;
         padding: 10px 20px;
@@ -160,7 +160,7 @@
         border-radius: 5px;
         border: none;
     }
-    #realBtn:hover, #userPostalCodeCheck:hover{
+    #realBtn:hover, #userNicknameCheck:hover, #userPostalCodeCheck:hover{
         background-color: #0056b3;
     }
     #joinForm > div > div{
@@ -185,7 +185,7 @@
     <section>
        
         <div>
-            <p class="text">개인 회원가입</p>
+            <p class="text">내 정보</p>
         </div>
         <form id="joinForm">
             <div>
@@ -198,7 +198,7 @@
                 <div>
                 <p>닉네임</p>
                 <input type="text" name="userNickname" id="userNickname" th:value="${user.userNickname}" maxlength="10">
-                <input type="button" id="realBtn" value="중복확인" onclick="nicknameCheck()" id="userNicknameCheck">
+                <input type="button" value="중복확인" onclick="nicknameCheck()" id="userNicknameCheck" >
                 <br>
                 <span class="ajax" id="nicknameAjax"></span>
                 </div>
